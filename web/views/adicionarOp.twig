@@ -1,0 +1,67 @@
+{% extends "template.html" %}
+
+{% block content %}
+
+  <div class="container">
+    <div> <h1>Adicionar Operação</h1> </div>
+    <form >
+    	<input type="hidden" name="status" value="2"></input>
+		<div class="form-group">
+			<label for="op-tipo-id" class="form-control-label">Tipo:</label>
+			<select id="op-tipo-id" class="form-control" name="tipo_transacao">
+				<option value="V">Venda</option>
+				<option value="C"> Compra </option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="dummy-productcode-id" class="form-control-label">Produto:</label>
+			<select id="dummy-productcode-id" class="form-control" name="dummy-productcode" >
+				<option value="">Adicionar Novo</option>
+				{% for prod in products %}
+					<option value="{{prod.codprod}}"> {{prod.codprod}} </option>
+				{% endfor %}
+			</select>
+		</div>
+		<div id="product-info" >
+			<div class="form-group">
+				
+				<label for="productcode-id" class="form-control-label">Código</label>
+				<input  id="productcode-id" name="cod_produto" class="form-control" type="number" ></input>
+			</div>
+
+			<div class="form-group">
+				<label for="productname-id" class="form-control-label">Nome</label>
+				<input  id="productname-id" name="name_produto" class="form-control" type="text"></input>				
+			</div>
+			<div class="form-group" >
+				<label for="producttye-id" class="form-control-label">Tipo</label>
+				<input  id="producttype-id" name="tipo_produto" class="form-control" type="text"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="qnt-id" class="form-control-label">Quantidade:</label>
+			<input  id="qnt-id" name="qnt" class="form-control" type="number"></input>
+		</div>
+
+		<div class="form-group">
+			<label for="price-id" class="form-control-label">Preco Total:</label>
+			<input  id="price-id" name="preco" class="form-control" type="text"></input>
+		</div>
+
+		<button id="submit-button-id" type="submit" class="btn btn-primary">Confirmar</button>
+		<div id="result-message">
+			
+		</div>
+    </form>
+  </div>
+
+{% endblock %}
+
+{% block footerIncludes %}
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+	<script type="text/javascript" src="js/adicionar.js"></script>
+
+{% endblock %}

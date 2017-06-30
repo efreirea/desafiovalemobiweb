@@ -1,0 +1,90 @@
+{% extends "template.html" %}
+
+
+{% block content %}
+
+  <div id="operations-wrapper" class="container">
+	<div>
+		
+	</div>
+	<div id="operations-list-container" class="list-group">
+		<div class="list-group-item d-flex align-items.stretch bg-faded flex-nowrap">
+			
+			<div class="p-2 custom-flex-1 text-center">
+				<b>Código da Operação</b>	
+			</div>
+			<div class="p-2 custom-flex-1 text-center">
+				<b>Produto</b>	
+			</div>
+
+			<div class="p-2 custom-flex-1 text-center">
+				<b>Total</b>	
+			</div>
+
+			<div class="p-2 custom-flex-1 text-center">
+				<b>Tipo</b>	
+			</div>
+
+		</div>
+		{% for op in operations %}
+			<button type="button" class="list-group-item list-group-item-action d-flex flex-column align-items-stretch flex-nowrap">
+				<div class="d-flex">
+					<div class="p-2 custom-flex-1 text-center">
+						{{op.id}}
+					</div>
+
+					<div class="p-2 custom-flex-1 text-center">
+						{{op.product.name}}
+					</div>
+					
+					<div class="p-2 custom-flex-1 text-center">
+						{{op.price}}
+					</div>
+
+					<div class="p-2 custom-flex-1 text-center">
+						{% if op.transactype == 'V' %}
+							Venda
+						{% elseif op.transactype == 'C' %}
+							Compra
+						{% endif %} 
+
+						{# {{op.transactype}} #}
+					</div>
+
+					
+
+				</div>
+				<div class="extra-content pl-5">
+					<div><h5>Informações do Produto</h5></div>
+					<div class="">
+						<div class="p-2 ">
+							<span> <b>Código: </b> </span>
+							<span>  {{op.product.codprod}} </span>
+						</div>
+
+						<div class="p-2">
+							<span><b>Tipo:</b></span>
+							{{op.product.typeprod}}
+						</div>
+
+						<div class="p-2">
+							<span><b>Quantidade:</b></span>
+							<span>{{op.qnt}}</span>
+						</div>
+					</div>
+				</div>
+			</button>
+		{% else %}
+			<div class="list-group-item">
+				Nenhuma operacao salva.
+			</div>
+		{% endfor %}
+	</div>
+  </div>
+
+{% endblock %}
+
+{% block footerIncludes %}
+	<script type="text/javascript" src="js/listar.js"></script>
+
+{% endblock %}

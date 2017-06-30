@@ -1,0 +1,27 @@
+#content-wrapper{
+  margin-top: 1rem; 
+  margin-bottom: 1rem; 
+}
+
+
+#product-info{
+  width:70%;
+  margin: auto;
+  
+}
+
+#result-message{
+  margin: 1rem;
+}
+.custom-flex-1{
+  -webkit-flex: 1;
+  -ms-flex: 1; 
+  -moz-flex: 1; 
+  flex: 1;
+}
+
+.extra-content{
+  display: none;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(100,100,100);
+}

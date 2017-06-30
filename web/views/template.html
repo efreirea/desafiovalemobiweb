@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  {% include 'headTag.html' %}
+	  {% block customHeadIncludes %} {% endblock %}
+	</head>
+
+	<body>
+	  {% include 'header.html' %}
+
+	  <div id="content-wrapper">
+	  	
+	  	{% block content %}{% endblock %}
+	  </div>
+
+	  {%include 'footerIncludes.html' %}
+	  {% block footerIncludes %} {% endblock %}
+	</body>
+</html>
